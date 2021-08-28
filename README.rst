@@ -35,8 +35,9 @@ O argumento para substituição é a letra ( s )
 
 Exemplos:
 
-   1): sed 's/T/U/' DNA.txt > RNA.txt                     
-   2): sed 's/DNA/RNA/' DNA.txt > RNA.txt
+   sed 's/T/U/' DNA.txt > RNA.txt                     
+   
+   sed 's/DNA/RNA/' DNA.txt > RNA.txt
 
 ================================================================
 Comando de substituição global da letra ou palavra de cada linha
@@ -50,8 +51,9 @@ O argumento para substituição é a letra ( s ) e, para que seja global utiliza
 
 Exemplos:
 
-   1): sed 's/T/U/g' DNA.txt > RNA.txt                       
-   2): sed 's/DNA/RNA/g' DNA.txt > RNA.txt
+   sed 's/T/U/g' DNA.txt > RNA.txt                       
+   
+   sed 's/DNA/RNA/g' DNA.txt > RNA.txt
 
 ==============================================================================
 Comando de deleção da linha inteira que contenha a letra ou palavra de escolha
@@ -65,8 +67,9 @@ O argumento para deleção da linha inteira é a letra (d)
 
 Exemplos: 
 
-   1): sed '/T/d' DNA.txt > RNA.txt                
-   2): sed '/DNA/d' DNA.txt > RNA.txt
+   sed '/T/d' DNA.txt > RNA.txt                
+   
+   sed '/DNA/d' DNA.txt > RNA.txt
 
 ==============================================
 Comando para deletar todas as linhas em branco
@@ -82,9 +85,9 @@ Exemplo:
   
    sed '/^$/d' DNA.txt > RNA.txt
 
-==========================================
-Deleção de linha específica ou selecionada
-==========================================
+=======================================================
+Comando para deleção de linha específica ou selecionada
+=======================================================
 
 .. code:: bash
 
@@ -94,14 +97,16 @@ O argumento para deletar a linha continua sendo a letra ( d ), porém, diferente
 
 Exemplos:
 
-   1): sed '3d' DNA.txt > RNA.txt          
-   2): sed '4d' DNA.txt > RNA.txt          
-   3): sed '5d' DNA.txt > RNA.txt 
+   sed '3d' DNA.txt > RNA.txt 
+   
+   sed '4d' DNA.txt > RNA.txt          
+   
+   sed '5d' DNA.txt > RNA.txt 
 
 =========================================================================
 Para selecionar mais de uma linha é necessário utilizar o argumento ( ; )
 =========================================================================
-
+ 
 .. code:: bash
 
    sed 'PRIMEIRALINHASELECIONADA;SEGUNDALINHASELECIONADA;TERCEIRALINHASELECIONADAd' INPUT.file > OUTPUT.file
@@ -110,9 +115,11 @@ O argumento ( ; ) seleciona a linha específica. Cada linha selecionada deve ser
 
 Exemplos:
 
-   1): sed '1d;2d;3d' DNA.txt > RNA.txt      
-   2): sed '2d;4d;6d' DNA.txt > RNA.txt       
-   3): sed '1d;5d;7d' DNA.txt > RNA.txt
+   sed '1d;2d;3d' DNA.txt > RNA.txt
+   
+   sed '2d;4d;6d' DNA.txt > RNA.txt
+   
+   sed '1d;5d;7d' DNA.txt > RNA.txt
 
 ===============================================================================
 Para selecionar intervalos entre linhas é necessário utilizar o argumento ( , )
@@ -126,9 +133,11 @@ O argumento ( , ) significa intervalo, ou seja, diz que entre uma linha e outra 
 
 Exemplos:
 
-   1): sed '1,3d' DNA.txt > RNA.txt         
-   2): sed '2,4d' DNA.txt > RNA.txt  
-   3): sed '20,50d' DNA.txt > RNA.txt
+   sed '1,3d' DNA.txt > RNA.txt  
+   
+   sed '2,4d' DNA.txt > RNA.txt 
+   
+   sed '20,50d' DNA.txt > RNA.txt
 
 ====================================================
 Listagem de linhas que contém caracteres específicos 
@@ -152,20 +161,25 @@ Da mesma forma que podemos deletar linhas selecionadas/específicas, podemos vis
 
 Exemplos para selecionar e visualizar uma linha em específico:
 
-   1): sed -n '1p' DNA.txt      
-   2): -n '5p' DNA.txt
+   sed -n '1p' DNA.txt  
+   
+   sed -n '5p' DNA.txt
   
 Exemplos para selecionar e visualizar mais de uma linha em específico: 
 
-   1): sed -n '1p;2p;3p' DNA.txt         
-   2): sed -n '2p;4p;6p' DNA.txt      
-   3): sed -n '1p;5p;10p' DNA.txt
+   sed -n '1p;2p;3p' DNA.txt
+   
+   sed -n '2p;4p;6p' DNA.txt 
+   
+   sed -n '1p;5p;10p' DNA.txt
   
 Exemplos para selecionar e visualizar linhas selecionadas entre(intervalo) uma linha e outra, em específico:
 
-   1): sed -n '1p,3p' DNA.txt         
-   2): sed -n '2p,4p' DNA.txt      
-   3): sed -n '1p,10p' DNA.txt
+   sed -n '1p,3p' DNA.txt
+   
+   sed -n '2p,4p' DNA.txt
+   
+   sed -n '1p,10p' DNA.txt
   
 ============================
 Transliteração de caracteres
@@ -179,8 +193,9 @@ Nesse caso também ocorre uma substituição, porém o argumento utilizado é o 
 
 Exemplos:
 
-   1): sed 'y/ACTG/actg/' DNA.txt > DNA2.txt              
-   2): sed 'y/ACTG/acug/' DNA.txt > RNA.txt
+   sed 'y/ACTG/actg/' DNA.txt > DNA2.txt 
+   
+   sed 'y/ACTG/acug/' DNA.txt > RNA.txt
   
 
 
@@ -253,8 +268,6 @@ O AWK é uma linguagem de programação, utilizado para tarefas comuns em manipu
 Identificação  do número de campos/colunas ( NF ), delimitados por tabulação ( TAB ) ou barra de espaço
 =======================================================================================================
 
-Comando:
-
 .. code:: bash
 
    awk '{print NF}' INPUT.file INPUT.file > OUTPUT.file 
@@ -296,7 +309,6 @@ Para identificar a numeração de cada linha ( NR ), utiliza-se o comando:
 Filtragem - Pesquisa de caracteres em arquivos
 ==============================================
 
-Comando:
 
 .. code:: bash
 
@@ -306,22 +318,22 @@ Esse comando faz uma busca e imprime na tela todas as linhas que contiverem: CAR
 
 Exemplos: 
 
-   1): awk '/DNA/' INPUT.file                   
-   2): awk '/RNA/' INPUT.file
+   awk '/DNA/' INPUT.file   
+   
+   awk '/RNA/' INPUT.file
 
 
 Para especificar letras maiúsculas ou minúsculas, basta fazer o uso da condição ( [ ] )
 
 Exemplos:
 
-  1): awk '/[Dd]NA/' INPUT.file               
-  2): awk '/[Rr]NA/' INPUT.file 
+  awk '/[Dd]NA/' INPUT.file 
+  
+  awk '/[Rr]NA/' INPUT.file 
   
 ======================================
 Extração de colunas - Print de Colunas
 ======================================
-
-Comando:
 
 .. code:: bash
 
@@ -331,18 +343,21 @@ Esse comando faz a impressão ( print ) das colunas ( $ ) especificadas ( * ). A
 
 Exemplos: 
 
-   1): awk '{print $1}' INPUT.file > OUTPUT.file      
-   2): awk '{print $1,$2,$3}' INPUT.file > OUTPUT.file            
-   3): awk '{print $7,$3,$5}' INPUT.file > OUTPUT.file
+   awk '{print $1}' INPUT.file > OUTPUT.file
+   
+   awk '{print $1,$2,$3}' INPUT.file > OUTPUT.file  
+   
+   awk '{print $7,$3,$5}' INPUT.file > OUTPUT.file
 
-Obs.: No exemplo número 3 foi possível mudar a ordem em que os campos (colunas) aparecem
+Obs.: No terceiro exemplo foi possível mudar a ordem em que os campos (colunas) aparecem
 
 Também é possível mesclar os comandos de filtragem e extração de colunas
 
 Exemplos: 
 
-   1): awk '/DNA/{print $1}' INPUT.file > OUTPUT.file      
-   2): awk '/ATCG/{print $1,$2,$3}' INPUT.file > OUTPUT.file
+   awk '/DNA/{print $1}' INPUT.file > OUTPUT.file  
+   
+   awk '/ATCG/{print $1,$2,$3}' INPUT.file > OUTPUT.file
   
 ======================================================
 Seleção de linhas e colunas com condição: contém ( ~ )
@@ -350,10 +365,11 @@ Seleção de linhas e colunas com condição: contém ( ~ )
 
 Exemplos:
 
-  1): awk '$1~/ATCG/{print $1}' INPUT.file          
-  2): awk '$4~/ATCG/{print $1,$2,$3,$4}' INPUT.file
+  awk '$1~/ATCG/{print $1}' INPUT.file 
   
-O exemplo número um pode ser lido dessa forma: ''caso contenha ( ~ ) os caracteres ( ATCG ) na coluna ( $1 ), imprima ( print ) a coluna ( $1 ) de todas as  linhas''
+  awk '$4~/ATCG/{print $1,$2,$3,$4}' INPUT.file
+  
+O primeiro exemplo pode ser lido dessa forma: ''caso contenha ( ~ ) os caracteres ( ATCG ) na coluna ( $1 ), imprima ( print ) a coluna ( $1 ) de todas as  linhas''
 
 O segundo exemplo pode ser lido dessa forma: ''caso contenha ( ~ ) os caracteres ( ATCG ) na coluna ( $4 ), imprima ( print ) as colunas ( $1,$2,$3 e $4 ) de todas as linhas''
 
